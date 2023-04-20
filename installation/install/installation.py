@@ -1,6 +1,6 @@
 import os
 import click
-from tqdm import tqdm
+# from tqdm import tqdm
 
 @click.command()
 def adding_user():
@@ -50,9 +50,9 @@ def frappe_installation():
     
 def display_progress_bar():
     # Display progress bar
-    with tqdm(total=100, desc='Processing', bar_format='{l_bar}{bar:50}{r_bar}') as pbar:
-        for i in range(10):
-            pbar.update(10)
+    # with tqdm(total=100, desc='Processing', bar_format='{l_bar}{bar:50}{r_bar}') as pbar:
+    #     for i in range(10):
+    #         pbar.update(10)
     click.echo(click.style('Frappe installation completed successfully!', fg='green', bold=True))
 
 if __name__ == '__main__':
