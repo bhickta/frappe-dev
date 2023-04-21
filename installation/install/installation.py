@@ -1,6 +1,5 @@
 import os
 import click
-# from tqdm import tqdm
 
 @click.command()
 def frappe_installation():
@@ -29,9 +28,8 @@ def frappe_installation():
         'sudo apt-get install npm -y',
         'sudo npm install -g yarn'
     ]
-    for i in range(0,2):
-        for command in commands:
-            os.system(f"{command} \n")
+    for command in commands:
+        os.system(f"{command} \n")
     
     # Upgrade pip
     packages = [
