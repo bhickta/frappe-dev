@@ -30,7 +30,7 @@ def frappe_install():
         'india-compliance':'--branch version-14 https://github.com/resilient-tech/india-compliance.git',
         'helpdesk':'helpdesk'
     }
-    for k, v in apps:
+    for k, v in apps.items():
         os.system(f'bench get-app {v}')
         print(f"{k} has been pulled")
         os.system(f'bench --site raplbaddi.com install-app {k}')
