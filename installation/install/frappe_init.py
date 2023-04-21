@@ -31,7 +31,9 @@ def frappe_install():
     ]
     for app in apps:
         os.system(f'bench get-app {app}')
+        print(f"{app} has been pulled")
         os.system(f'bench --site raplbaddi.com install-app {app}')
+        print(f"{app} has been installed")
 
 if __name__ == '__main__':
     # mysql_secure_installation()
