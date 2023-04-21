@@ -14,7 +14,7 @@ def mysql_secure_installation():
 def frappe_install():
     os.system('bench init --frappe-branch version-14 frappe-bench')
     os.system('chmod -R o+rx /home/frappe')
-    os.chdir('~/frappe/frappe-bench')
+    os.chdir('~/frappe-bench/')
     os.system('bench new-site raplbaddi.com --db-name raplbaddi --db-password Impossible.dev1@')
     
     apps = {
