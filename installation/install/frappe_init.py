@@ -14,7 +14,7 @@ def mysql_secure_installation():
 def frappe_install():
     commands = [
         'bench init --frappe-branch version-14 frappe-bench',
-        'cd frappe-bench',
+        'cd frappe-bench/',
         'chmod -R o+rx /home/frappe',
         'bench new-site raplbaddi.com --db-name raplbaddi --db-password Impossible.dev1@'
     ]
