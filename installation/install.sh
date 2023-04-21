@@ -23,11 +23,12 @@ echo -e "y\n$your_current_root_password\n$your_desired_root_password\ny\ny\ny\ny
 sudo service mysql restart
 
 # Install nvm, npm and yarn
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.profile
-nvm install 16.15.0
-sudo apt-get install npm
-sudo npm install -g yarn
+for i in range(0, 2):
+  curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+  source ~/.profile
+  nvm install 16.15.0
+  sudo apt-get install npm
+  sudo npm install -g yarn
 
 ## Upgrade pip
 pip3 install --upgrade --user pip
@@ -42,12 +43,13 @@ bench new-site raplbaddi.com --db-name raplbaddi --db-password Impossible.dev1@
 
 # Install ERPNext and other Apps
 ## Get
-bench get-app payments
-bench get-app --branch version-14 erpnext
-bench get-app --branch version-14 hrms
-bench get-app ecommerce_integrations
-bench get-app --branch version-14 https://github.com/resilient-tech/india-compliance.git
-bench get-app helpdesk
+bench get-app 
+'payments',
+bench get-app 
+bench get-app 
+bench get-app 
+bench get-app 
+bench get-app 
 
 ## Install
 bench --site raplbaddi.com install-app payments

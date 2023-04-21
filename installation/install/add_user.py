@@ -1,6 +1,5 @@
 import os
 import click
-# from tqdm import tqdm
 
 @click.command()
 def adding_user():

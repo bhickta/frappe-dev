@@ -4,6 +4,10 @@ import click
 
 @click.command()
 def frappe_installation():
+    # Turn of restart prompt
+    restart_prompt = '''sudo sh -c "echo '$nrconf{restart} = '\''a'\'';' >> /etc/needrestart/needrestart.conf"'''
+    os.system(restart_prompt)
+    
     # Install prerequisites
     click.confirm('Do you want to install the prerequisites?', abort=True)
     prerequisites = [
@@ -21,12 +25,13 @@ def frappe_installation():
     commands = [
         'curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash',
         'source ~/.profile',
-        'nvm install 16.15.0',
-        'sudo apt-get install npm',
+        'nvm install 16.15.0 -y',
+        'sudo apt-get install npm -y',
         'sudo npm install -g yarn'
     ]
-    for command in commands:
-        os.system(f"{command} \n")
+    for i in range(0,2):
+        for command in commands:
+            os.system(f"{command} \n")
     
     # Upgrade pip
     packages = [
@@ -36,13 +41,6 @@ def frappe_installation():
     for package in packages:
         os.system(package)
     
-    display_progress_bar()
-    
-def display_progress_bar():
-    # Display progress bar
-    # with tqdm(total=100, desc='Processing', bar_format='{l_bar}{bar:50}{r_bar}') as pbar:
-    #     for i in range(10):
-    #         pbar.update(10)
     click.echo(click.style('Frappe installation completed successfully!', fg='green', bold=True))
 
 if __name__ == '__main__':
