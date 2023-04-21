@@ -5,7 +5,7 @@ import click
 @click.command()
 def adding_user():
     root_password = click.prompt("Enter changed root password")
-    os.system(f"echo '{root_password} \n {root_password}' \n | passwd")
+    os.system(f"echo -e '{root_password} \n {root_password}' \n | passwd")
     frappe_user = click.prompt('Enter Frappe User')
     click.confirm(f'Do you want to add the user with sudo access and switch to that user? {frappe_user}?', abort=True)
     os.system(f'sudo adduser {frappe_user}')
