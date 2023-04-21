@@ -14,8 +14,8 @@ def frappe_installation():
         'software-properties-common',
         'xvfb', 'libfontconfig', 'wkhtmltopdf', 'libmysqlclient-dev'
     ]
-    for prerequisit in prerequisites:
-        os.system(f"sudo apt install -y {prerequisit}")
+    for prerequisite in prerequisites:
+        os.system(f"sudo apt install -y {prerequisite} \n")
 
     # Install nvm, npm and yarn
     commands = [
@@ -26,7 +26,7 @@ def frappe_installation():
         'sudo npm install -g yarn'
     ]
     for command in commands:
-        os.system(command)
+        os.system(f"{command} \n")
     
     # Upgrade pip
     packages = [
