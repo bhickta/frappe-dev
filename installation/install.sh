@@ -29,10 +29,10 @@ nvm install 16.15.0
 sudo apt-get install npm
 sudo npm install -g yarn
 
-# Install bench and upgrade pip
-sudo pip3 install frappe-bench
 ## Upgrade pip
 pip3 install --upgrade --user pip
+# Install bench and upgrade pip
+sudo pip3 install frappe-bench
 
 # Initialize Frappe Bench
 bench init --frappe-branch version-14 frappe-bench
