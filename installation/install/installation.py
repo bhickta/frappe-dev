@@ -22,7 +22,8 @@ def frappe_installation():
 
     # Install nvm, npm and yarn
     commands = [
-        'curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash',
+        'curl -o install.sh https://raw.githubusercontent.com/creationix/nvm/master/install.sh',
+        'bash install.sh'
         'source ~/.profile',
         'nvm install 16.15.0 -y',
         'sudo apt-get install npm -y',
