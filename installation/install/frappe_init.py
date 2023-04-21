@@ -31,5 +31,5 @@ def frappe_install():
         print(f"{k} has been installed")
 
 if __name__ == '__main__':
-    mysql_secure_installation()
+    # mysql_secure_installation()
     frappe_install()
