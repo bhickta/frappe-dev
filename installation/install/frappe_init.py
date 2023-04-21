@@ -15,7 +15,7 @@ def frappe_install():
     commands = [
         'bench init --frappe-branch version-14 frappe-bench',
         'chmod -R o+rx /home/frappe',
-        'cd ~/frappe-bench/'
+        'cd ~/frappe/frappe-bench/'
         'bench new-site raplbaddi.com --db-name raplbaddi --db-password Impossible.dev1@'
     ]
 
