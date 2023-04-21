@@ -22,18 +22,19 @@ def frappe_install():
     for command in commands:
         os.system(command)
 
-    apps = [
-        '--branch version-14 erpnext',
-        '--branch version-14 hrms',
-        'ecommerce_integrations',
-        '--branch version-14 https://github.com/resilient-tech/india-compliance.git',
-        'helpdesk'
-    ]
-    for app in apps:
-        os.system(f'bench get-app {app}')
-        print(f"{app} has been pulled")
-        os.system(f'bench --site raplbaddi.com install-app {app}')
-        print(f"{app} has been installed")
+    
+    apps = {
+        'erpnext': '--branch version-14 erpnext',
+        'hrms': '--branch version-14 hrms',
+        'ecommerce_integrations':'ecommerce_integrations',
+        'india-compliance':'--branch version-14 https://github.com/resilient-tech/india-compliance.git',
+        'helpdesk':'helpdesk'
+    }
+    for k, v in apps:
+        os.system(f'bench get-app {v}')
+        print(f"{k} has been pulled")
+        os.system(f'bench --site raplbaddi.com install-app {k}')
+        print(f"{k} has been installed")
 
 if __name__ == '__main__':
     # mysql_secure_installation()
