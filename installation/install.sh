@@ -70,35 +70,3 @@ sudo bench setup production frappe
 bench setup nginx
 sudo supervisorctl restart all
 sudo bench setup production frappe
-
-cp example.env ~/gitops/erpnext-raplbaddi.env
-sed -i 's/DB_PASSWORD=123/DB_PASSWORD=Impossible.dev1@/g' ~/gitops/erpnext-raplbaddi.env
-sed -i 's/DB_HOST=/DB_HOST=mariadb-database/g' ~/gitops/erpnext-raplbaddi.env
-sed -i 's/DB_PORT=/DB_PORT=3306/g' ~/gitops/erpnext-raplbaddi.env
-sed -i 's/SITES=`erp.example.com`/SITES=\`raplbadd.com\`, /g' ~/gitops/erpnext-raplbaddi.env
-echo 'ROUTER=erpnext-raplbaddi' >> ~/gitops/erpnext-raplbaddi.env
-echo "BENCH_NETWORK=erpnext-raplbaddi" >> ~/gitops/erpnext-raplbaddi.env
-
-docker compose --project-name erpnext-raplbaddi \
-  --env-file ~/gitops/erpnext-raplbaddi.env \
-  -f compose.yaml \
-  -f overrides/compose.redis.yaml \
-  -f overrides/compose.multi-bench.yaml \
-  -f overrides/compose.multi-bench-ssl.yaml config > ~/gitops/erpnext-raplbaddi.yaml
-
-sudo  docker compose --project-name erpnext-raplbaddi -f ~/gitops/erpnext-raplbaddi.yaml up -d
-# raplbaddi.com
-sudo docker compose --project-name erpnext-raplbaddi exec backend \
-  bench new-site raplbaddi.com --no-mariadb-socket --mariadb-root-password Impossible.dev1@ --install-app erpnext --admin-password Impossible.dev1@
-
-echo "ROUTER=erpnext-raplbaddi" > ~/gitops/erpnext-raplbaddi.env
-echo "SITES=\`raplbaddi.com\`" >> ~/gitops/erpnext-raplbaddi.env
-echo "BASE_SITE=raplbaddi.com" >> ~/gitops/erpnext-raplbaddi.env
-echo "BENCH_NETWORK=erpnext-raplbaddi" >> ~/gitops/erpnext-raplbaddi.env
-
-docker compose --project-name erpnext-raplbaddi \
-  --env-file ~/gitops/erpnext-raplbaddi.env \
-  -f overrides/compose.custom-domain.yaml \
-  -f overrides/compose.custom-domain-ssl.yaml config > ~/gitops/erpnext-raplbaddi.yaml
-
-docker compose --project-name erpnext-raplbaddi -f ~/gitops/erpnext-raplbaddi.yaml up -d
