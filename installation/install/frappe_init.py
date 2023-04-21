@@ -12,15 +12,10 @@ def mysql_secure_installation():
 
 @click.command()
 def frappe_install():
-    commands = [
-        'bench init --frappe-branch version-14 frappe-bench',
-        'chmod -R o+rx /home/frappe',
-        'cd ~/frappe-'
-        'bench new-site raplbaddi.com --db-name raplbaddi --db-password Impossible.dev1@'
-    ]
-
-    for command in commands:
-        os.system(command)
+    os.system('bench init --frappe-branch version-14 frappe-bench')
+    os.system('chmod -R o+rx /home/frappe')
+    os.system('cd ~/frappe-bench')
+    os.system('bench new-site raplbaddi.com --db-name raplbaddi --db-password Impossible.dev1@')
     
     apps = {
         'erpnext': '--branch version-14 erpnext',
