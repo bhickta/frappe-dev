@@ -19,7 +19,7 @@ def frappe_installation():
         'xvfb', 'libfontconfig', 'wkhtmltopdf', 'libmysqlclient-dev'
     ]
     for prerequisite in prerequisites:
-        os.system(f"sudo apt install -y {prerequisite} \n")
+        os.system(f"sudo apt install -y {prerequisite}")
 
     # Install nvm, npm and yarn
     commands = [
