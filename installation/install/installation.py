@@ -46,5 +46,4 @@ def display_progress_bar():
     click.echo(click.style('Frappe installation completed successfully!', fg='green', bold=True))
 
 if __name__ == '__main__':
-    adding_user()
     frappe_installation()
