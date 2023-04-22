@@ -4,7 +4,7 @@ import click
 
 def domain():
     commands = [
-        'bench setup add-domain',
+        'bench setup add-domain raplbaddi.com',
         'bench setup nginx',
         'sudo service nginx reload',
         'sudo apt install certbot'
