@@ -15,7 +15,7 @@ def frappe_installation():
         'curl', 'git',
         'python3-dev', 'python3.10-dev', 'python3-setuptools', 'python3-pip', 'python3-distutils', 'python3.10-venv',
         'software-properties-common',
-        'xvfb', 'libfontconfig', 'wkhtmltopdf', 'libmysqlclient-dev'
+        'xvfb', 'libfontconfig', 'wkhtmltopdf', 'libmysqlclient-dev, certbot'
     ]
     for prerequisite in prerequisites:
         os.system(f"sudo apt install -y {prerequisite}")

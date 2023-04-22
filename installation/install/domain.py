@@ -1,15 +1,15 @@
 import os
 import click
 
-@click.command()
-def ssh():
+
+def domain():
     commands = [
-        'bench config dns_multitenant on',
+        'bench setup add-domain dev.raplbaddi.com',
         'bench setup nginx',
         'sudo service nginx reload'
-    ]
+        ]
     for command in commands:
         os.system(command)
 
 if __name__ == '__main__':
-    ssh()
+    domain()
