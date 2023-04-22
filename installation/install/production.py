@@ -9,7 +9,8 @@ def production():
         'bench --site raplbaddi.com set-maintenance-mode off',
         'sudo bench setup production frappe',
         'bench setup nginx',
-        'sudo supervisorctl restart all'
+        'sudo supervisorctl restart all',
+        'sudo bench setup production frappe'
     ]
     for command in commands:
         os.system(command)
